@@ -2,6 +2,21 @@ resource "google_sql_database_instance" "master_instance" {
   name             = "terragoat-${var.environment}-master"
   database_version = "POSTGRES_11"
   region           = var.region
+resource "google_compute_network" "private_network" {
+  provider = google-beta
+
+  name = "private-network"
+}
+
+resource "google_compute_global_address" "private_ip_address" {
+  provider = google-beta
+
+  name          = "private-ip-address"
+  purpose       = "VPC_PEERING"
+  address_type  = "INTERNAL"
+  prefix_length = 16
+  network       = google_compute_network.private_network.id
+}
 
   settings {
     tier = "db-f1-micro"
