@@ -5,6 +5,7 @@ resource "google_sql_database_instance" "master_instance" {
 
   settings {
     tier = "db-f1-micro"
+      require_ssl = true
     ip_configuration {
       ipv4_enabled = true
       authorized_networks {
