@@ -7,8 +7,8 @@ provider "aws" {
 provider "aws" {
   alias      = "plain_text_access_keys_provider"
   region     = "us-west-1"
-  access_key = "AKIAIOSFODNN7EXAMPLE"
-  secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+  access_key = "not here anymore"
+  secret_key = "not here anymore"
 }
 
 terraform {
